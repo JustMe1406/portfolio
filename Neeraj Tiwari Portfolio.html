@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEERAJ TIWARI — QA / AUTOMATION / WEB / INFRASTRUCTURE</title>
+    <meta name="description" content="Neeraj Tiwari — Software Testing & QA Engineer, Python & Playwright Automation Developer, Web Developer, and IT Operations Specialist based in Bhopal, India.">
+    <meta name="author" content="Neeraj Tiwari">
+
+    <!-- Structured JSON-LD Schema for Technical Recruiters & Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Neeraj Tiwari",
+      "jobTitle": "Software QA Engineer, Python Automation & Web Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhopal",
+        "addressRegion": "Madhya Pradesh",
+        "addressCountry": "IN"
+      },
+      "email": "mailto:neerajtiwari1406@gmail.com",
+      "url": "https://github.com/JustMe1406",
+      "sameAs": ["https://github.com/JustMe1406"],
+      "knowsAbout": [
+        "Software Testing",
+        "Quality Assurance",
+        "Python Automation",
+        "Playwright",
+        "Next.js",
+        "Supabase",
+        "IT Operations",
+        "DevOps"
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Syne (Display), Inter (Neo-Grotesque), JetBrains Mono (Technical) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        mono: {
+                            black: '#000000',
+                            dark: '#111111',
+                            mid: '#777777',
+                            light: '#E5E5E5',
+                            offwhite: '#FAFAFA',
+                            white: '#FFFFFF',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Strict Reset: 0px border-radius and zero box-shadow everywhere */
+        *, *::before, *::after {
+            border-radius: 0px !important;
+            box-shadow: none !important;
+        }
+
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #000000;
+            --text-secondary: #111111;
+            --text-muted: #777777;
+            --border-color: #000000;
+            --border-subtle: #D4D4D4;
+        }
+
+        body.inverted {
+            --bg-primary: #000000;
+            --bg-secondary: #111111;
+            --text-primary: #FFFFFF;
+            --text-secondary: #FAFAFA;
+            --text-muted: #777777;
+            --border-color: #FFFFFF;
+            --border-subtle: #333333;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+        }
+
+        /* Custom Raw Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-primary);
+        }
+
+        /* Swiss Hairline Borders */
+        .b-all { border: 1px solid var(--border-color); }
+        .b-t { border-top: 1px solid var(--border-color); }
+        .b-b { border-bottom: 1px solid var(--border-color); }
+        .b-l { border-left: 1px solid var(--border-color); }
+        .b-r { border-right: 1px solid var(--border-color); }
+        .b-subtle-b { border-bottom: 1px solid var(--border-subtle); }
+        .b-subtle-t { border-top: 1px solid var(--border-subtle); }
+
+        /* Brutalist Instant & 150ms Mechanical Polarity Inversion */
+        .invert-hover {
+            transition: background-color 150ms ease-in-out, color 150ms ease-in-out, border-color 150ms ease-in-out;
+        }
+        .invert-hover:hover {
+            background-color: var(--text-primary) !important;
+            color: var(--bg-primary) !important;
+        }
+        .invert-hover:hover .muted-child {
+            color: var(--bg-primary) !important;
+            opacity: 0.75;
+        }
+        .invert-hover:hover .border-child {
+            border-color: var(--bg-primary) !important;
+        }
+
+        /* Sleek Underline Slide-In for Links */
+        .link-underline {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: translateX(-101%);
+            transition: transform 150ms ease-in-out;
+        }
+        .link-underline:hover::after {
+            transform: translateX(0);
+        }
+
+        /* Selection Polarity */
+        ::selection {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Typography Scale Adjustments */
+        .hero-display {
+            font-size: clamp(2.65rem, 7.2vw, 7rem);
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+        }
+
+        /* QA DOM Grid Inspector Mode */
+        body.qa-inspect-active [data-qa-node] {
+            position: relative;
+            outline: 1px dashed var(--text-primary) !important;
+        }
+        body.qa-inspect-active [data-qa-node]::before {
+            content: attr(data-qa-node);
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 1px 5px;
+            z-index: 40;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+
+        /* Print / ATS Dossier Optimization */
+        @media print {
+            body {
+                background: #FFFFFF !important;
+                color: #000000 !important;
+            }
+            header, footer, .no-print, #cmd-modal, #qa-telemetry-bar {
+                display: none !important;
+            }
+            .project-drawer {
+                display: grid !important;
+            }
+            main {
+                border: none !important;
+                max-width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+
+    <!-- 2PX MECHANICAL SCROLL PROGRESS HAIRLINE -->
+    <div class="fixed top-0 left-0 w-full h-[2px] z-[60] bg-transparent no-print">
+        <div id="scroll-progress" class="h-full bg-[var(--text-primary)] w-0 transition-all duration-75"></div>
+    </div>
+
+    <!-- TOP ARCHITECTURAL PINNED HEADER (NO PILLS, NO BLUR, RAW GRID) -->
+    <header class="sticky top-0 z-50 b-b bg-[var(--bg-primary)]">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-12">
+            
+            <!-- Cell 1: Index & Name (3 Cols) -->
+            <div class="col-span-1 md:col-span-3 p-4 md:px-6 b-r flex items-center justify-between" data-qa-node="HDR // 3-COL">
+                <a href="#top" class="font-mono text-xs font-bold tracking-tight uppercase flex items-center gap-2">
+                    <span class="inline-block w-2.5 h-2.5 bg-[var(--text-primary)]"></span>
+                    <span>NEERAJ TIWARI [NT—01]</span>
+                </a>
+            </div>
+
+            <!-- Cell 2: Geographic & System Coordinates (2 Cols - Hidden on Small Mobile) -->
+            <div class="hidden md:flex md:col-span-2 p-4 md:px-5 b-r items-center justify-between font-mono text-xs text-[var(--text-muted)]" data-qa-node="TELEMETRY // 2-COL">
+                <span>BHOPAL, IN</span>
+                <span id="live-clock" class="text-[var(--text-primary)]">IST --:--:--</span>
+            </div>
+
+            <!-- Cell 3: Raw Navigation Links (4 Cols) -->
+            <nav class="hidden md:flex md:col-span-4 p-4 md:px-6 b-r items-center justify-between font-mono text-xs uppercase" data-qa-node="NAV // 4-COL">
+                <a href="#work" class="link-underline">01/Projects</a>
+                <a href="#experience" class="link-underline">02/Experience</a>
+                <a href="#capabilities" class="link-underline">03/Skills</a>
+                <a href="#contact" class="link-underline">04/Contact</a>
+            </nav>
+
+            <!-- Cell 4: QA Inspector, Command Palette & Polarity Switch (3 Cols) -->
+            <div class="col-span-1 md:col-span-3 flex items-stretch justify-end">
+                <button onclick="toggleQAInspector()" id="qa-toggle-btn" class="hidden lg:flex px-4 b-r font-mono text-[11px] uppercase font-bold invert-hover items-center gap-1.5 cursor-pointer" title="Toggle QA DOM Grid Inspector [Key: Q]">
+                    <span id="qa-label">[QA GRID: OFF]</span>
+                </button>
+                <button onclick="toggleCommandModal()" class="hidden sm:flex px-4 b-r font-mono text-[11px] uppercase font-bold invert-hover items-center gap-1 cursor-pointer" title="Open Command Palette [Key: K or /]">
+                    <span>[CMD: K]</span>
+                </button>
+                <button onclick="togglePolarity()" class="flex-1 p-4 md:px-4 font-mono text-[11px] uppercase font-bold invert-hover flex items-center justify-between cursor-pointer" title="Invert Monochrome Polarity [Key: I]">
+                    <span id="polarity-label">[PAPER]</span>
+                    <span>◐</span>
+                </button>
+                <button id="mobile-nav-toggle" onclick="toggleMobileNav()" class="md:hidden px-5 b-l font-mono text-xs uppercase font-bold invert-hover cursor-pointer">
+                    MENU
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Raw Dropdown Grid -->
+        <div id="mobile-nav" class="hidden md:hidden b-t bg-[var(--bg-primary)] grid-cols-2 font-mono text-xs uppercase">
+            <a href="#work" onclick="toggleMobileNav()" class="p-4 b-r b-b invert-hover">01 / Projects</a>
+            <a href="#experience" onclick="toggleMobileNav()" class="p-4 b-b invert-hover">02 / Experience</a>
+            <a href="#capabilities" onclick="toggleMobileNav()" class="p-4 b-r b-b invert-hover">03 / Capabilities</a>
+            <a href="#approach" onclick="toggleMobileNav()" class="p-4 b-b invert-hover">04 / Approach</a>
+            <button onclick="toggleQAInspector(); toggleMobileNav();" class="p-4 b-r b-b invert-hover text-left font-bold">
+                [TOGGLE QA GRID]
+            </button>
+            <button onclick="toggleCommandModal(); toggleMobileNav();" class="p-4 b-b invert-hover text-left font-bold">
+                [COMMAND MENU]
+            </button>
+            <a href="#contact" onclick="toggleMobileNav()" class="col-span-2 p-4 invert-hover flex justify-between font-bold">
+                <span>05 / Direct Contact</span>
+                <span>→</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- QA INSPECTOR LIVE TELEMETRY RIBBON (VISIBLE WHEN QA GRID IS ACTIVE) -->
+    <div id="qa-telemetry-bar" class="hidden b-b bg-[var(--text-primary)] text-[var(--bg-primary)] font-mono text-[11px] uppercase">
+        <div class="max-w-[1600px] mx-auto px-6 py-2 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <span class="font-bold">[QA DOM INSPECTOR ACTIVE]</span>
+                <span id="qa-viewport-size">VIEWPORT: ---- x ----</span>
+                <span id="qa-hover-target">NODE: BODY</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span>GRID: 12-COL SWISS ASYMMETRIC</span>
+                <button onclick="toggleQAInspector()" class="underline font-bold cursor-pointer">[EXIT QA MODE]</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN SWISS STRUCTURAL CONTAINER -->
+    <main id="top" class="max-w-[1600px] mx-auto b-l b-r">
+
+        <!-- ==========================================
+             00 // ASYMMETRIC HERO SECTION (8:4 SPLIT)
+             ========================================== -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 b-b" data-qa-node="SECTION // HERO 8:4 SPLIT">
+            
+            <!-- Left 67% (8 Cols): Massive Left-Aligned Typography & Objective Statement -->
+            <div class="lg:col-span-8 p-6 sm:p-10 md:p-16 lg:py-28 lg:px-14 b-b lg:b-b-0 lg:b-r flex flex-col justify-between min-h-[72vh]" data-qa-node="COL-SPAN-8 // 66.6% WIDTH">
+                
+                <div class="flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase text-[var(--text-muted)] pb-12">
+                    <span>[INDEX: PORTFOLIO SPECIFICATION // REV 2.4]</span>
+                    <span>PRONOUNS: HE / HIM</span>
+                </div>
+
+                <div class="my-auto py-8">
+                    <h1 class="font-display font-extrabold uppercase hero-display tracking-tight">
+                        QA ENGINEER.<br>
+                        PYTHON AUTOMATION.<br>
+                        WEB &amp; IT SYSTEMS.
+                    </h1>
+                </div>
+
+                <div class="pt-12 b-subtle-t grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+                    <p class="md:col-span-7 text-base sm:text-lg leading-relaxed font-normal text-[var(--text-secondary)]">
+                        Technology practitioner based in Bhopal, Madhya Pradesh. Experienced in manual and browser-automated software testing, Python and Playwright tooling, full-stack web application development, email infrastructure, and internal company IT operations.
+                    </p>
+                    <div class="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-2 font-mono text-xs uppercase no-print">
+                        <a href="#work" class="w-full p-4 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold flex items-center justify-between hover:bg-transparent hover:text-[var(--text-primary)] transition-all duration-150">
+                            <span>INSPECT WORK</span>
+                            <span>↓</span>
+                        </a>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="copyEmailAddress()" class="w-full p-4 b-all invert-hover font-bold flex items-center justify-between cursor-pointer">
+                                <span id="hero-email-btn">COPY EMAIL</span>
+                                <span>⎘</span>
+                            </button>
+                            <button onclick="window.print()" class="w-full p-4 b-all invert-hover font-bold flex items-center justify-between cursor-pointer" title="Print / Save ATS-Ready Technical Dossier">
+                                <span>CV / PRINT</span>
+                                <span>⎙</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 33% (4 Cols): Raw Technical Ledger & Interactive Playwright Runner -->
+            <div class="lg:col-span-4 flex flex-col justify-between" data-qa-node="COL-SPAN-4 // 33.3% LEDGER">
+                
+                <!-- Metadata Table -->
+                <div class="divide-y divide-[var(--border-subtle)] font-mono text-xs">
+                    <div class="p-5 sm:px-6 flex justify-between items-center">
+                        <span class="text-[var(--text-muted)] uppercase">FULL NAME</span>
+                        <span class="font-bold uppercase">NEERAJ TIWARI</span>
+                    </div>
+                    <div class="p-5 sm:px-6 flex justify-between items-center">
+                        <span class="text-[var(--text-muted)] uppercase">LOCATION</span>
+                        <span class="uppercase">BHOPAL, MP, INDIA</span>
+                    </div>
+                    <div class="p-5 sm:px-6 flex justify-between items-center">
+                        <span class="text-[var(--text-muted)] uppercase">GITHUB REPOSITORY</span>
+                        <a href="https://github.com/JustMe1406" target="_blank" rel="noopener noreferrer" class="font-bold link-underline">@JustMe1406 ↗</a>
+                    </div>
+                    <div class="p-5 sm:px-6 flex justify-between items-center">
+                        <span class="text-[var(--text-muted)] uppercase">DIRECT DISPATCH</span>
+                        <a href="mailto:neerajtiwari1406@gmail.com" class="link-underline truncate max-w-[200px]">neerajtiwari1406@gmail.com</a>
+                    </div>
+                    <div class="p-5 sm:px-6 flex justify-between items-center">
+                        <span class="text-[var(--text-muted)] uppercase">EDUCATION</span>
+                        <span class="uppercase text-right">PURSUING DEGREE / XII COMPLETED</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Raw Test Suite Console -->
+                <div class="p-6 sm:p-8 b-t bg-[var(--bg-secondary)] flex-1 flex flex-col justify-between">
+                    <div class="flex items-center justify-between font-mono text-xs pb-4 b-subtle-b">
+                        <span class="font-bold uppercase">[PLAYWRIGHT VERIFICATION]</span>
+                        <div class="flex gap-1 no-print">
+                            <button onclick="runFullSuite()" class="px-2.5 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-mono text-[10px] uppercase font-bold cursor-pointer hover:bg-transparent hover:text-[var(--text-primary)] transition-all duration-150">
+                                RUN SUITE ▶
+                            </button>
+                            <button onclick="stepTestLog()" class="px-2.5 py-1 b-all invert-hover font-mono text-[10px] uppercase font-bold cursor-pointer">
+                                STEP →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="my-6 font-mono text-xs space-y-2 leading-relaxed">
+                        <div class="text-[var(--text-muted)]">$ pytest --browser=chromium test_portfolio.py</div>
+                        <div class="pl-3 border-l border-[var(--border-color)] space-y-1.5" id="console-lines">
+                            <div id="suite-line-1">[01] TARGET: Neeraj Tiwari [NT-01]</div>
+                            <div id="suite-line-2">[02] STACK: Python / Playwright / Next.js / Supabase</div>
+                            <div id="suite-line-3">[03] OPS: Website Admin, DNS/Email, DevOps, QA</div>
+                            <div id="dynamic-log-line" class="font-bold pt-1">STATUS: 5 PASSED IN 0.42s (200 OK)</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-px bg-[var(--border-color)] b-all font-mono text-xs">
+                        <div class="bg-[var(--bg-primary)] p-3">
+                            <div class="text-[10px] text-[var(--text-muted)]">DOMAINS</div>
+                            <div class="font-bold mt-0.5">QA / DEV / OPS</div>
+                        </div>
+                        <div class="bg-[var(--bg-primary)] p-3">
+                            <div class="text-[10px] text-[var(--text-muted)]">ASSERTIONS</div>
+                            <div id="assertion-counter" class="font-bold mt-0.5">28 / 28 PASS</div>
+                        </div>
+                        <div class="bg-[var(--bg-primary)] p-3">
+                            <div class="text-[10px] text-[var(--text-muted)]">STATUS</div>
+                            <div class="font-bold mt-0.5">AVAILABLE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             01 // SELECTED PROJECTS (ASYMMETRIC HORIZONTAL LEDGER)
+             ========================================================= -->
+        <section id="work" class="b-b" data-qa-node="SECTION // 01 PROJECTS LEDGER">
+            <!-- Section Header Row (35% / 65% Split) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 b-b">
+                <div class="lg:col-span-4 p-6 sm:p-10 b-b lg:b-b-0 lg:b-r flex flex-col justify-between" data-qa-node="HEADER // 33.3%">
+                    <span class="font-mono text-xs uppercase text-[var(--text-muted)]">SECTION // 01</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight mt-4">
+                        SELECTED PROJECTS
+                    </h2>
+                </div>
+                <div class="lg:col-span-8 p-6 sm:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6" data-qa-node="CONTROLS // 66.6%">
+                    <p class="text-sm sm:text-base text-[var(--text-secondary)] max-w-xl">
+                        Production web systems, enterprise IT infrastructure, competitive tournament platforms, and Python browser automation tooling. Click any index row to inspect architecture and technical code specs.
+                    </p>
+                    <!-- Filter Controls -->
+                    <div class="flex flex-wrap gap-1 font-mono text-xs uppercase shrink-0 no-print">
+                        <button onclick="filterProjectLedger('all')" data-filter="all" class="ledger-filter px-3 py-2 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer">ALL [04]</button>
+                        <button onclick="filterProjectLedger('web')" data-filter="web" class="ledger-filter px-3 py-2 b-all invert-hover cursor-pointer">WEB [03]</button>
+                        <button onclick="filterProjectLedger('automation')" data-filter="automation" class="ledger-filter px-3 py-2 b-all invert-hover cursor-pointer">PYTHON/QA [01]</button>
+                        <button onclick="filterProjectLedger('infra')" data-filter="infra" class="ledger-filter px-3 py-2 b-all invert-hover cursor-pointer">IT/OPS [01]</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 01: DUO SEEK -->
+            <article class="project-row b-b" data-category="web" data-qa-node="ROW 01 // DUO SEEK">
+                <div onclick="toggleDrawer('drawer-01', 'icon-01')" class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-10 lg:py-12 invert-hover cursor-pointer items-baseline gap-4">
+                    <div class="lg:col-span-1 font-mono text-xs muted-child">01 / 04</div>
+                    <div class="lg:col-span-5">
+                        <h3 class="font-display text-2xl sm:text-4xl font-extrabold uppercase tracking-tight">DUO SEEK</h3>
+                    </div>
+                    <div class="lg:col-span-3 font-mono text-xs uppercase muted-child">
+                        GAMING SOCIAL &amp; MATCHING PLATFORM
+                    </div>
+                    <div class="lg:col-span-2 font-mono text-xs uppercase">
+                        NEXT.JS / SUPABASE / DISCORD
+                    </div>
+                    <div class="lg:col-span-1 font-mono text-xs text-right font-bold">
+                        <span id="icon-01">[- SPEC]</span>
+                    </div>
+                </div>
+                <!-- Asymmetric 65% / 35% Specification Drawer (Default Open on First Item) -->
+                <div id="drawer-01" class="project-drawer grid grid-cols-1 lg:grid-cols-12 b-t bg-[var(--bg-secondary)]">
+                    <div class="lg:col-span-8 p-6 sm:p-10 lg:p-12 b-b lg:b-b-0 lg:b-r space-y-6" data-qa-node="SPEC // 65% ASYMMETRIC">
+                        <div class="flex flex-wrap items-center justify-between gap-2 b-subtle-b pb-4">
+                            <div class="font-mono text-xs uppercase text-[var(--text-muted)]">TECHNICAL SPECIFICATION // DUO SEEK</div>
+                            <div class="flex gap-1 font-mono text-[11px] no-print">
+                                <button onclick="switchSpecTab('p1', 'arch')" id="btn-p1-arch" class="px-3 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer">01 // ARCHITECTURE</button>
+                                <button onclick="switchSpecTab('p1', 'code')" id="btn-p1-code" class="px-3 py-1 b-all invert-hover cursor-pointer">02 // SCHEMA &amp; MATCH SPEC</button>
+                            </div>
+                        </div>
+
+                        <!-- Tab 1: Architecture Overview -->
+                        <div id="tab-p1-arch" class="space-y-6">
+                            <p class="text-base sm:text-lg leading-relaxed text-[var(--text-primary)] max-w-2xl">
+                                A private, gaming-focused social platform inspired by matching applications, built to connect players based on game preferences, skill tiers, and communication styles.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">01 // INTERACTION MODEL</div>
+                                    <div>Gaming community structure, user matching logic, and private user-focused interaction flows.</div>
+                                </div>
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">02 // SYSTEM DESIGN</div>
+                                    <div>Product planning, feature design, backend database schemas, and modern web application architecture.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Code / Schema Spec -->
+                        <div id="tab-p1-code" class="hidden">
+                            <pre class="p-4 b-all bg-[var(--bg-primary)] font-mono text-xs overflow-x-auto leading-relaxed"><code>-- SUPABASE POSTGRESQL // PLAYER MATCHING &amp; DISCORD SYNC
+CREATE TABLE public.player_profiles (
+  id UUID REFERENCES auth.users NOT NULL PRIMARY KEY,
+  discord_id TEXT UNIQUE NOT NULL,
+  preferred_games TEXT[] NOT NULL DEFAULT '{}',
+  comms_mode TEXT CHECK (comms_mode IN ('voice_req', 'text_only', 'flexible')),
+  region TEXT DEFAULT 'AP-SOUTH',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- MATCH FILTER QUERY (NEXT.JS API ROUTE)
+SELECT id, discord_id, preferred_games
+FROM public.player_profiles
+WHERE preferred_games &amp;&amp; $1::TEXT[] AND id != $2;</code></pre>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 p-6 sm:p-10 lg:p-12 flex flex-col justify-between font-mono text-xs space-y-6" data-qa-node="META // 35% ASYMMETRIC">
+                        <div class="space-y-3">
+                            <div class="text-[var(--text-muted)] uppercase">TECHNOLOGY DIRECTION</div>
+                            <ul class="space-y-2 b-t pt-3">
+                                <li class="flex justify-between"><span>FRAMEWORK:</span><span class="font-bold">Next.js</span></li>
+                                <li class="flex justify-between"><span>DATABASE &amp; AUTH:</span><span class="font-bold">Supabase</span></li>
+                                <li class="flex justify-between"><span>INTEGRATION:</span><span class="font-bold">Discord Bot API</span></li>
+                                <li class="flex justify-between"><span>FOCUS:</span><span class="font-bold">Full-Stack Web</span></li>
+                            </ul>
+                        </div>
+                        <div class="p-4 b-all bg-[var(--bg-primary)]">
+                            STATUS: ARCHITECTURE &amp; APPLICATION DEVELOPMENT
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 02: INNA SPN COMPANY WEBSITE -->
+            <article class="project-row b-b" data-category="web infra" data-qa-node="ROW 02 // INNA SPN INFRASTRUCTURE">
+                <div onclick="toggleDrawer('drawer-02', 'icon-02')" class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-10 lg:py-12 invert-hover cursor-pointer items-baseline gap-4">
+                    <div class="lg:col-span-1 font-mono text-xs muted-child">02 / 04</div>
+                    <div class="lg:col-span-5">
+                        <h3 class="font-display text-2xl sm:text-4xl font-extrabold uppercase tracking-tight">INNA SPN INFRASTRUCTURE</h3>
+                    </div>
+                    <div class="lg:col-span-3 font-mono text-xs uppercase muted-child">
+                        CORPORATE WEB &amp; EMAIL OPERATIONS
+                    </div>
+                    <div class="lg:col-span-2 font-mono text-xs uppercase">
+                        WEB ADMIN / DNS / DEVOPS
+                    </div>
+                    <div class="lg:col-span-1 font-mono text-xs text-right font-bold">
+                        <span id="icon-02">[+ SPEC]</span>
+                    </div>
+                </div>
+                <div id="drawer-02" class="project-drawer hidden grid-cols-1 lg:grid-cols-12 b-t bg-[var(--bg-secondary)]">
+                    <div class="lg:col-span-8 p-6 sm:p-10 lg:p-12 b-b lg:b-b-0 lg:b-r space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 b-subtle-b pb-4">
+                            <div class="font-mono text-xs uppercase text-[var(--text-muted)]">OPERATIONAL SCOPE // INNA SPN PVT. LTD.</div>
+                            <div class="flex gap-1 font-mono text-[11px] no-print">
+                                <button onclick="switchSpecTab('p2', 'arch')" id="btn-p2-arch" class="px-3 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer">01 // INFRASTRUCTURE</button>
+                                <button onclick="switchSpecTab('p2', 'code')" id="btn-p2-code" class="px-3 py-1 b-all invert-hover cursor-pointer">02 // DNS &amp; OPS RUNBOOK</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-p2-arch" class="space-y-6">
+                            <p class="text-base sm:text-lg leading-relaxed text-[var(--text-primary)] max-w-2xl">
+                                Managed the company website and related technical infrastructure for Inna SPN Consultancy / Inna SPN Pvt. Ltd., maintaining operational uptime and internal communication systems.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">01 // WEB &amp; EMAIL SYSTEMS</div>
+                                    <div>Ongoing website maintenance, content updates, and administration of company email systems and infrastructure.</div>
+                                </div>
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">02 // DEVOPS &amp; SUPPORT</div>
+                                    <div>Technical troubleshooting, DevOps-related infrastructure operations, and general company IT support.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-p2-code" class="hidden">
+                            <pre class="p-4 b-all bg-[var(--bg-primary)] font-mono text-xs overflow-x-auto leading-relaxed"><code># INFRASTRUCTURE &amp; EMAIL DELIVERABILITY VERIFICATION CHECKLIST
+[DNS_RECORD]  TYPE=MX     PRIORITY=10   STATUS=VERIFIED
+[EMAIL_AUTH]  SPF         v=spf1 include:_spf.mailhost ~all
+[EMAIL_AUTH]  DKIM/DMARC  p=quarantine; pct=100;
+[WEB_UPTIME]  SSL/TLS     TLS 1.3 Strict // Auto-Renew Active
+[IT_OPS]      DIAGNOSTICS Web Deployment, Mailbox Provisioning &amp; Fault Recovery</code></pre>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 p-6 sm:p-10 lg:p-12 flex flex-col justify-between font-mono text-xs space-y-6">
+                        <div class="space-y-3">
+                            <div class="text-[var(--text-muted)] uppercase">RESPONSIBILITIES</div>
+                            <ul class="space-y-2 b-t pt-3">
+                                <li class="flex justify-between"><span>ENTITY:</span><span class="font-bold">Inna SPN Pvt. Ltd.</span></li>
+                                <li class="flex justify-between"><span>INFRASTRUCTURE:</span><span class="font-bold">Web &amp; Email Systems</span></li>
+                                <li class="flex justify-between"><span>OPERATIONS:</span><span class="font-bold">DevOps &amp; IT Support</span></li>
+                            </ul>
+                        </div>
+                        <div class="p-4 b-all bg-[var(--bg-primary)]">
+                            ROLE: IT OPERATIONS &amp; TECHNICAL SUPPORT
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 03: E-TOURNAMENT HOSTING PLATFORM -->
+            <article class="project-row b-b" data-category="web" data-qa-node="ROW 03 // E-TOURNAMENT PLATFORM">
+                <div onclick="toggleDrawer('drawer-03', 'icon-03')" class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-10 lg:py-12 invert-hover cursor-pointer items-baseline gap-4">
+                    <div class="lg:col-span-1 font-mono text-xs muted-child">03 / 04</div>
+                    <div class="lg:col-span-5">
+                        <h3 class="font-display text-2xl sm:text-4xl font-extrabold uppercase tracking-tight">E-TOURNAMENT PLATFORM</h3>
+                    </div>
+                    <div class="lg:col-span-3 font-mono text-xs uppercase muted-child">
+                        COMPETITIVE GAMING HOSTING SYSTEM
+                    </div>
+                    <div class="lg:col-span-2 font-mono text-xs uppercase">
+                        FRONTEND / BACKEND / UI
+                    </div>
+                    <div class="lg:col-span-1 font-mono text-xs text-right font-bold">
+                        <span id="icon-03">[+ SPEC]</span>
+                    </div>
+                </div>
+                <div id="drawer-03" class="project-drawer hidden grid-cols-1 lg:grid-cols-12 b-t bg-[var(--bg-secondary)]">
+                    <div class="lg:col-span-8 p-6 sm:p-10 lg:p-12 b-b lg:b-b-0 lg:b-r space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 b-subtle-b pb-4">
+                            <div class="font-mono text-xs uppercase text-[var(--text-muted)]">ENGINEERING SCOPE // E-TOURNAMENT SYSTEM</div>
+                            <div class="flex gap-1 font-mono text-[11px] no-print">
+                                <button onclick="switchSpecTab('p3', 'arch')" id="btn-p3-arch" class="px-3 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer">01 // ARCHITECTURE</button>
+                                <button onclick="switchSpecTab('p3', 'code')" id="btn-p3-code" class="px-3 py-1 b-all invert-hover cursor-pointer">02 // BRACKET &amp; STATE LOGIC</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-p3-arch" class="space-y-6">
+                            <p class="text-base sm:text-lg leading-relaxed text-[var(--text-primary)] max-w-2xl">
+                                Built a gaming tournament website combining frontend user interfaces and backend functionality to organize, host, and manage competitive events.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">01 // FULL-STACK IMPLEMENTATION</div>
+                                    <div>Tournament hosting workflows, frontend interface development, and backend feature integration.</div>
+                                </div>
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">02 // DEBUGGING &amp; STABILITY</div>
+                                    <div>End-to-end troubleshooting and iterative improvements to application behavior under user load.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-p3-code" class="hidden">
+                            <pre class="p-4 b-all bg-[var(--bg-primary)] font-mono text-xs overflow-x-auto leading-relaxed"><code>// TOURNAMENT REGISTRATION &amp; BRACKET VALIDATION FLOW
+async function validateRosterSubmission(tournamentId, squadPayload) {
+  if (!squadPayload.captainId || squadPayload.members.length &lt; 4) {
+    throw new Error("ERR_ROSTER_INCOMPLETE: Minimum 4 verified players required.");
+  }
+  const slotStatus = await db.tournaments.checkCapacity(tournamentId);
+  return slotStatus.available ? db.registrations.commit(squadPayload) : "WAITLIST_QUEUED";
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 p-6 sm:p-10 lg:p-12 flex flex-col justify-between font-mono text-xs space-y-6">
+                        <div class="space-y-3">
+                            <div class="text-[var(--text-muted)] uppercase">DELIVERABLES</div>
+                            <ul class="space-y-2 b-t pt-3">
+                                <li class="flex justify-between"><span>ARCHITECTURE:</span><span class="font-bold">Frontend + Backend</span></li>
+                                <li class="flex justify-between"><span>CORE MODULE:</span><span class="font-bold">Tournament Organization</span></li>
+                                <li class="flex justify-between"><span>QUALITY:</span><span class="font-bold">Functional Debugging</span></li>
+                            </ul>
+                        </div>
+                        <div class="p-4 b-all bg-[var(--bg-primary)]">
+                            SCOPE: INDEPENDENT WEB DEVELOPMENT
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 04: PYTHON BROWSER AUTOMATION & TESTING TOOLS -->
+            <article class="project-row" data-category="automation" data-qa-node="ROW 04 // PYTHON & PLAYWRIGHT">
+                <div onclick="toggleDrawer('drawer-04', 'icon-04')" class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-10 lg:py-12 invert-hover cursor-pointer items-baseline gap-4">
+                    <div class="lg:col-span-1 font-mono text-xs muted-child">04 / 04</div>
+                    <div class="lg:col-span-5">
+                        <h3 class="font-display text-2xl sm:text-4xl font-extrabold uppercase tracking-tight">PYTHON &amp; PLAYWRIGHT SUITE</h3>
+                    </div>
+                    <div class="lg:col-span-3 font-mono text-xs uppercase muted-child">
+                        BROWSER AUTOMATION &amp; QA TOOLING
+                    </div>
+                    <div class="lg:col-span-2 font-mono text-xs uppercase">
+                        PYTHON / PLAYWRIGHT / API
+                    </div>
+                    <div class="lg:col-span-1 font-mono text-xs text-right font-bold">
+                        <span id="icon-04">[+ SPEC]</span>
+                    </div>
+                </div>
+                <div id="drawer-04" class="project-drawer hidden grid-cols-1 lg:grid-cols-12 b-t bg-[var(--bg-secondary)]">
+                    <div class="lg:col-span-8 p-6 sm:p-10 lg:p-12 b-b lg:b-b-0 lg:b-r space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 b-subtle-b pb-4">
+                            <div class="font-mono text-xs uppercase text-[var(--text-muted)]">AUTOMATION ARCHITECTURE // PLAYWRIGHT + PYTHON</div>
+                            <div class="flex gap-1 font-mono text-[11px] no-print">
+                                <button onclick="switchSpecTab('p4', 'arch')" id="btn-p4-arch" class="px-3 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer">01 // ARCHITECTURE</button>
+                                <button onclick="switchSpecTab('p4', 'code')" id="btn-p4-code" class="px-3 py-1 b-all invert-hover cursor-pointer">02 // PLAYWRIGHT SCRIPT</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-p4-arch" class="space-y-6">
+                            <p class="text-base sm:text-lg leading-relaxed text-[var(--text-primary)] max-w-2xl">
+                                Developed Python-based browser automation workflows to eliminate repetitive manual operations and enforce structured software testing processes.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">01 // EXECUTION &amp; RECOVERY</div>
+                                    <div>Playwright browser control, DOM interaction, automated error detection, and fault recovery workflows.</div>
+                                </div>
+                                <div class="p-4 b-all">
+                                    <div class="text-[var(--text-muted)] mb-1">02 // TELEMETRY &amp; APIS</div>
+                                    <div>Automation reliability debugging, local control dashboards, and REST API integration.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-p4-code" class="hidden">
+                            <pre class="p-4 b-all bg-[var(--bg-primary)] font-mono text-xs overflow-x-auto leading-relaxed"><code># PYTHON + PLAYWRIGHT // RESILIENT WORKFLOW &amp; FAULT RECOVERY
+from playwright.sync_api import sync_playwright, TimeoutError
+
+def execute_qa_workflow(target_url: str, max_retries: int = 3) -&gt; dict:
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        for attempt in range(1, max_retries + 1):
+            try:
+                resp = page.goto(target_url, wait_until="networkidle", timeout=10000)
+                assert resp.status == 200, f"HTTP_ERR_{resp.status}"
+                return {"status": "PASS", "attempt": attempt}
+            except (TimeoutError, AssertionError) as err:
+                if attempt == max_retries:
+                    page.screenshot(path="fault_capture.png")
+                    return {"status": "FAIL", "error": str(err)}</code></pre>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 p-6 sm:p-10 lg:p-12 flex flex-col justify-between font-mono text-xs space-y-6">
+                        <div class="space-y-3">
+                            <div class="text-[var(--text-muted)] uppercase">TECHNICAL STACK</div>
+                            <ul class="space-y-2 b-t pt-3">
+                                <li class="flex justify-between"><span>LANGUAGE:</span><span class="font-bold">Python</span></li>
+                                <li class="flex justify-between"><span>ENGINE:</span><span class="font-bold">Playwright</span></li>
+                                <li class="flex justify-between"><span>INTERFACE:</span><span class="font-bold">Local Dashboards &amp; REST</span></li>
+                            </ul>
+                        </div>
+                        <div class="p-4 b-all bg-[var(--bg-primary)]">
+                            FOCUS: RELIABILITY &amp; REPETITIVE TASK AUTOMATION
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- =========================================================
+             02 // EXPERIENCE LEDGER (4:8 ASYMMETRIC SPLIT)
+             ========================================================= -->
+        <section id="experience" class="grid grid-cols-1 lg:grid-cols-12 b-b" data-qa-node="SECTION // 02 WORK LEDGER 4:8">
+            
+            <!-- Left 4 Cols: Sticky Section Header & Summary -->
+            <div class="lg:col-span-4 p-6 sm:p-10 lg:p-14 b-b lg:b-b-0 lg:b-r flex flex-col justify-between" data-qa-node="STICKY INDEX // 33.3%">
+                <div class="lg:sticky lg:top-24 space-y-6">
+                    <span class="font-mono text-xs uppercase text-[var(--text-muted)]">SECTION // 02</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight leading-none">
+                        WORK<br>LEDGER
+                    </h2>
+                    <p class="text-sm text-[var(--text-secondary)] leading-relaxed pt-2">
+                        Hands-on operational history across software quality assurance, AI data evaluation, corporate IT infrastructure, and full-stack web engineering.
+                    </p>
+                    <div class="pt-6 b-subtle-t font-mono text-xs text-[var(--text-muted)] space-y-1">
+                        <div>TOTAL TRACKS: 03</div>
+                        <div>METHODOLOGY: SYSTEMATIC DEBUGGING</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 8 Cols: Chronological Entries -->
+            <div class="lg:col-span-8 divide-y divide-[var(--border-color)]" data-qa-node="EXPERIENCE ROWS // 66.6%">
+                
+                <!-- Entry 01 -->
+                <div class="p-6 sm:p-10 lg:py-16 lg:px-14 grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div class="md:col-span-4 space-y-2">
+                        <div class="font-mono text-xs text-[var(--text-muted)]">TRACK // 01</div>
+                        <h3 class="font-display text-xl font-bold uppercase">Software Testing, QA &amp; Data Annotation</h3>
+                        <div class="font-mono text-xs font-bold pt-1">CrowdGen (Appen) &amp; Independent Projects</div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <ul class="space-y-3 text-sm sm:text-base text-[var(--text-secondary)]">
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[01]</span>
+                                <span>Executed software testing, quality assurance workflows, and systematic bug identification across web applications.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[02]</span>
+                                <span>Performed AI data annotation, image captioning, and structured visual description tasks.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[03]</span>
+                                <span>Evaluated dataset outputs against strict task-specific guidelines and quality benchmarks.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[04]</span>
+                                <span>Applied structured verification workflows to isolate errors and improve output accuracy.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[05]</span>
+                                <span>Conducted browser-based functional testing and built repetitive task automation scripts.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Entry 02 -->
+                <div class="p-6 sm:p-10 lg:py-16 lg:px-14 grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div class="md:col-span-4 space-y-2">
+                        <div class="font-mono text-xs text-[var(--text-muted)]">TRACK // 02</div>
+                        <h3 class="font-display text-xl font-bold uppercase">IT Operations &amp; Technical Support</h3>
+                        <div class="font-mono text-xs font-bold pt-1">Inna SPN Consultancy / Inna SPN Pvt. Ltd.</div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <ul class="space-y-3 text-sm sm:text-base text-[var(--text-secondary)]">
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[01]</span>
+                                <span>Managed and maintained the production company website.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[02]</span>
+                                <span>Administered company email systems and underlying email infrastructure.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[03]</span>
+                                <span>Assisted with DevOps workflows and technical infrastructure operations.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[04]</span>
+                                <span>Resolved day-to-day IT operational issues, system faults, and technical support tickets.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[05]</span>
+                                <span>Maintained the ongoing reliability and availability of internal company technology systems.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Entry 03 -->
+                <div class="p-6 sm:p-10 lg:py-16 lg:px-14 grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div class="md:col-span-4 space-y-2">
+                        <div class="font-mono text-xs text-[var(--text-muted)]">TRACK // 03</div>
+                        <h3 class="font-display text-xl font-bold uppercase">Web Development</h3>
+                        <div class="font-mono text-xs font-bold pt-1">Independent Projects</div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <ul class="space-y-3 text-sm sm:text-base text-[var(--text-secondary)]">
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[01]</span>
+                                <span>Engineered web applications with integrated frontend interfaces and backend logic.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[02]</span>
+                                <span>Structured application architecture, user interfaces, and practical user-facing features.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[03]</span>
+                                <span>Diagnosed implementation bugs and optimized overall website functionality.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-mono text-xs font-bold mt-1">[04]</span>
+                                <span>Executed across the full development lifecycle from UI construction to database and API integration.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+             03 // TECHNICAL CAPABILITIES (VARIABLE-SPAN BENTO MATRIX)
+             ========================================================= -->
+        <section id="capabilities" class="b-b" data-qa-node="SECTION // 03 CAPABILITIES MATRIX">
+            
+            <!-- Header Strip -->
+            <div class="p-6 sm:p-10 lg:px-14 lg:py-16 b-b flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="font-mono text-xs uppercase text-[var(--text-muted)]">SECTION // 03</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight mt-3">
+                        TECHNICAL CAPABILITIES
+                    </h2>
+                </div>
+                <p class="font-mono text-xs uppercase text-[var(--text-muted)] max-w-md">
+                    5 CORE CLUSTERS // ALTERNATING 7:5 &amp; 5:7 ASYMMETRIC BENTO CELLS.
+                </p>
+            </div>
+
+            <!-- Row 1: 7 Cols (QA & Testing) + 5 Cols (Programming & Web) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 b-b">
+                
+                <!-- 7 Cols: Software Testing & QA -->
+                <div class="lg:col-span-7 p-6 sm:p-10 lg:p-14 b-b lg:b-b-0 lg:b-r flex flex-col justify-between space-y-10" data-qa-node="BENTO // 7-COL (58.3%)">
+                    <div class="flex items-baseline justify-between b-subtle-b pb-4">
+                        <h3 class="font-display text-xl sm:text-2xl font-bold uppercase">01 / Software Testing &amp; QA</h3>
+                        <span class="font-mono text-xs text-[var(--text-muted)]">[08 MODULES]</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-xs">
+                        <div class="p-3.5 b-all invert-hover">Manual Software Testing</div>
+                        <div class="p-3.5 b-all invert-hover">Bug Identification &amp; Troubleshooting</div>
+                        <div class="p-3.5 b-all invert-hover">Functional Testing</div>
+                        <div class="p-3.5 b-all invert-hover">Browser-Based Testing</div>
+                        <div class="p-3.5 b-all invert-hover">Quality Assurance Workflows</div>
+                        <div class="p-3.5 b-all invert-hover">Test Case Execution &amp; Validation</div>
+                        <div class="p-3.5 b-all invert-hover">Data Annotation &amp; Quality Eval</div>
+                        <div class="p-3.5 b-all invert-hover">Postman for API Testing</div>
+                    </div>
+                </div>
+
+                <!-- 5 Cols: Programming & Development -->
+                <div class="lg:col-span-5 p-6 sm:p-10 lg:p-14 flex flex-col justify-between space-y-10" data-qa-node="BENTO // 5-COL (41.6%)">
+                    <div class="flex items-baseline justify-between b-subtle-b pb-4">
+                        <h3 class="font-display text-xl sm:text-2xl font-bold uppercase">02 / Programming &amp; Dev</h3>
+                        <span class="font-mono text-xs text-[var(--text-muted)]">[06 MODULES]</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2 font-mono text-xs">
+                        <div class="p-3.5 b-all invert-hover">Python Scripting &amp; Automation</div>
+                        <div class="p-3.5 b-all invert-hover">HTML, CSS &amp; JavaScript Fundamentals</div>
+                        <div class="p-3.5 b-all invert-hover">Next.js &amp; Web Application Development</div>
+                        <div class="p-3.5 b-all invert-hover">Frontend &amp; Backend Integration</div>
+                        <div class="p-3.5 b-all invert-hover">REST API Testing &amp; Integration</div>
+                        <div class="p-3.5 b-all invert-hover">Firebase &amp; Supabase Project Experience</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: 5 Cols (IT Ops) + 7 Cols (Automation & Tools) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 b-b">
+                
+                <!-- 5 Cols: IT Operations & Troubleshooting -->
+                <div class="lg:col-span-5 p-6 sm:p-10 lg:p-14 b-b lg:b-b-0 lg:b-r flex flex-col justify-between space-y-10" data-qa-node="BENTO // 5-COL (41.6%)">
+                    <div class="flex items-baseline justify-between b-subtle-b pb-4">
+                        <h3 class="font-display text-xl sm:text-2xl font-bold uppercase">03 / IT Ops &amp; Systems</h3>
+                        <span class="font-mono text-xs text-[var(--text-muted)]">[06 MODULES]</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2 font-mono text-xs">
+                        <div class="p-3.5 b-all invert-hover">Website Maintenance</div>
+                        <div class="p-3.5 b-all invert-hover">Email Systems &amp; Infrastructure</div>
+                        <div class="p-3.5 b-all invert-hover">DevOps-Related Operations</div>
+                        <div class="p-3.5 b-all invert-hover">Application Debugging</div>
+                        <div class="p-3.5 b-all invert-hover">Technical Issue Investigation</div>
+                        <div class="p-3.5 b-all invert-hover">System &amp; Workflow Troubleshooting</div>
+                    </div>
+                </div>
+
+                <!-- 7 Cols: Automation & Technical Tools -->
+                <div class="lg:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-between space-y-10" data-qa-node="BENTO // 7-COL (58.3%)">
+                    <div class="flex items-baseline justify-between b-subtle-b pb-4">
+                        <h3 class="font-display text-xl sm:text-2xl font-bold uppercase">04 / Automation &amp; Tooling</h3>
+                        <span class="font-mono text-xs text-[var(--text-muted)]">[08 MODULES]</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-xs">
+                        <div class="p-3.5 b-all invert-hover">Python Automation</div>
+                        <div class="p-3.5 b-all invert-hover">Playwright Browser Automation</div>
+                        <div class="p-3.5 b-all invert-hover">Chrome DevTools &amp; Browser Debugging</div>
+                        <div class="p-3.5 b-all invert-hover">Git &amp; GitHub Version Control</div>
+                        <div class="p-3.5 b-all invert-hover">Jira Issue &amp; Project Tracking</div>
+                        <div class="p-3.5 b-all invert-hover">Trello Workflow Boards</div>
+                        <div class="p-3.5 b-all invert-hover">Notion Documentation</div>
+                        <div class="p-3.5 b-all invert-hover">Excel &amp; Google Sheets Formulas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Full-Width 12-Col Strip for Communication & Collaboration -->
+            <div class="p-6 sm:p-10 lg:p-14" data-qa-node="BENTO // 12-COL FULL BLEED">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between b-subtle-b pb-4 mb-8 gap-2">
+                    <h3 class="font-display text-xl sm:text-2xl font-bold uppercase">05 / Communication &amp; Collaboration</h3>
+                    <span class="font-mono text-xs text-[var(--text-muted)]">TEAM COORDINATION &amp; CLIENT DISPATCH</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2 font-mono text-xs">
+                    <div class="p-4 b-all invert-hover">Client Communication</div>
+                    <div class="p-4 b-all invert-hover">Team Coordination</div>
+                    <div class="p-4 b-all invert-hover">Technical Problem-Solving</div>
+                    <div class="p-4 b-all invert-hover">Written &amp; Verbal Clarity</div>
+                    <div class="p-4 b-all invert-hover">Issue &amp; Solution Reporting</div>
+                    <div class="p-4 b-all invert-hover">Independent Tech Learning</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             04 // APPROACH, INTERESTS & EDUCATION (8:4 SPLIT)
+             ========================================================= -->
+        <section id="approach" class="grid grid-cols-1 lg:grid-cols-12 b-b" data-qa-node="SECTION // 04 APPROACH 8:4">
+            
+            <!-- Left 8 Cols: Operational Approach & Target Domains -->
+            <div class="lg:col-span-8 p-6 sm:p-10 lg:py-24 lg:px-14 b-b lg:b-b-0 lg:b-r space-y-12">
+                <div class="space-y-4">
+                    <span class="font-mono text-xs uppercase text-[var(--text-muted)]">SECTION // 04 — METHODOLOGY</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight">
+                        OPERATIONAL APPROACH
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-base leading-relaxed text-[var(--text-secondary)]">
+                    <p>
+                        I focus on practical problem-solving, continuous learning, and building solutions that work reliably in real-world situations. My background spans software development, testing, automation, and technical support—allowing me to evaluate systems from both an engineering and quality assurance perspective.
+                    </p>
+                    <p>
+                        I prioritize clear communication, systematic debugging, efficient workflows, and measurable reliability. I am available for roles where I can apply my testing, automation, and development skills to production systems.
+                    </p>
+                </div>
+
+                <div class="pt-8 b-subtle-t space-y-4">
+                    <div class="font-mono text-xs uppercase text-[var(--text-muted)]">TARGET ROLES &amp; PROFESSIONAL INTERESTS [09]</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[var(--border-color)] b-all font-mono text-xs">
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">01 / Software Development</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">02 / Software Testing &amp; QA</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">03 / Python Automation</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">04 / Technical Support Eng.</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">05 / IT Operations &amp; DevOps</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">06 / Web Application Dev</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">07 / AI Data Quality &amp; QA</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">08 / Customer Support Eng.</div>
+                        <div class="bg-[var(--bg-primary)] p-4 invert-hover">09 / Privacy &amp; Data Analysis</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 4 Cols: Academic Ledger -->
+            <div class="lg:col-span-4 p-6 sm:p-10 lg:py-24 lg:px-12 flex flex-col justify-between bg-[var(--bg-secondary)]">
+                <div class="space-y-8">
+                    <div>
+                        <span class="font-mono text-xs uppercase text-[var(--text-muted)]">ACADEMIC RECORD</span>
+                        <h3 class="font-display text-2xl sm:text-3xl font-extrabold uppercase mt-2">EDUCATION</h3>
+                    </div>
+
+                    <div class="space-y-4 font-mono text-xs">
+                        <div class="p-6 b-all bg-[var(--bg-primary)] space-y-2">
+                            <div class="text-[var(--text-muted)]">[CURRENT STATUS]</div>
+                            <div class="text-sm font-bold uppercase">College-Level Education</div>
+                            <div class="text-[var(--text-secondary)]">Currently pursuing undergraduate studies.</div>
+                        </div>
+
+                        <div class="p-6 b-all bg-[var(--bg-primary)] space-y-2">
+                            <div class="text-[var(--text-muted)]">[COMPLETED]</div>
+                            <div class="text-sm font-bold uppercase">Class 12 (Senior Secondary)</div>
+                            <div class="text-[var(--text-secondary)]">Completed higher secondary education.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-12 font-mono text-xs text-[var(--text-muted)] b-subtle-t mt-12">
+                    BASE OF OPERATIONS:<br>
+                    <span class="text-[var(--text-primary)] font-bold">BHOPAL, MADHYA PRADESH, INDIA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             05 // DIRECT CONTACT & DISPATCH TERMINAL (7:5 SPLIT)
+             ========================================================= -->
+        <section id="contact" class="grid grid-cols-1 lg:grid-cols-12" data-qa-node="SECTION // 05 CONTACT 7:5">
+            
+            <!-- Left 7 Cols: Stark Contact Directory -->
+            <div class="lg:col-span-7 p-6 sm:p-10 lg:py-28 lg:px-14 b-b lg:b-b-0 lg:b-r flex flex-col justify-between">
+                <div class="space-y-6">
+                    <span class="font-mono text-xs uppercase text-[var(--text-muted)]">SECTION // 05 — INITIATE CONTACT</span>
+                    <h2 class="font-display text-4xl sm:text-6xl font-extrabold uppercase tracking-tight leading-none">
+                        DIRECT<br>DISPATCH.
+                    </h2>
+                    <p class="text-base text-[var(--text-secondary)] max-w-lg pt-2">
+                        Available for software testing, QA engineering, Python browser automation, web development, and technical support roles.
+                    </p>
+                </div>
+
+                <div class="pt-12 space-y-3 font-mono text-xs">
+                    <div class="p-5 b-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <div class="text-[var(--text-muted)] uppercase">ELECTRONIC MAIL</div>
+                            <a href="mailto:neerajtiwari1406@gmail.com" class="text-sm sm:text-base font-bold link-underline mt-1">neerajtiwari1406@gmail.com</a>
+                        </div>
+                        <button onclick="copyEmailAddress()" class="px-4 py-2.5 b-all invert-hover font-bold uppercase cursor-pointer shrink-0 no-print">
+                            COPY ADDRESS ⎘
+                        </button>
+                    </div>
+
+                    <a href="https://github.com/JustMe1406" target="_blank" rel="noopener noreferrer" class="p-5 b-all invert-hover flex items-center justify-between">
+                        <div>
+                            <div class="text-[var(--text-muted)] muted-child uppercase">GITHUB PROFILE</div>
+                            <div class="text-sm sm:text-base font-bold mt-1">github.com/JustMe1406</div>
+                        </div>
+                        <span class="text-lg font-bold">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right 5 Cols: Raw Brutalist Mailto Dispatch Form -->
+            <div class="lg:col-span-5 p-6 sm:p-10 lg:py-28 lg:px-12 bg-[var(--bg-secondary)] no-print">
+                <form onsubmit="handleDispatch(event)" class="space-y-6 font-mono text-xs">
+                    <div class="font-bold uppercase b-subtle-b pb-3">MESSAGE COMPOSER [MAILTO PROTOCOL]</div>
+
+                    <div class="space-y-2">
+                        <label for="dispatch-name" class="block uppercase text-[var(--text-muted)]">01 / SENDER NAME OR ORGANIZATION *</label>
+                        <input id="dispatch-name" type="text" required placeholder="ENTER NAME" class="w-full p-4 b-all bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="dispatch-subject" class="block uppercase text-[var(--text-muted)]">02 / SUBJECT SPECIFICATION *</label>
+                        <input id="dispatch-subject" type="text" required placeholder="QA / AUTOMATION / WEB DEV / IT SUPPORT" class="w-full p-4 b-all bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="dispatch-body" class="block uppercase text-[var(--text-muted)]">03 / TRANSMISSION PAYLOAD *</label>
+                        <textarea id="dispatch-body" rows="4" required placeholder="ENTER TECHNICAL REQUIREMENTS OR ROLE DETAILS..." class="w-full p-4 b-all bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full p-5 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold uppercase hover:bg-transparent hover:text-[var(--text-primary)] transition-all duration-150 flex items-center justify-between cursor-pointer">
+                        <span>TRANSMIT VIA EMAIL CLIENT</span>
+                        <span>→</span>
+                    </button>
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER BAR -->
+    <footer class="max-w-[1600px] mx-auto b-l b-r b-t b-b font-mono text-xs uppercase">
+        <div class="grid grid-cols-1 md:grid-cols-12">
+            <div class="md:col-span-4 p-6 b-b md:b-b-0 md:b-r flex items-center justify-between">
+                <span>© NEERAJ TIWARI</span>
+                <span class="text-[var(--text-muted)]">HE / HIM</span>
+            </div>
+            <div class="md:col-span-5 p-6 b-b md:b-b-0 md:b-r text-[var(--text-muted)] flex items-center justify-between">
+                <span>BHOPAL, MP, INDIA</span>
+                <span class="hidden sm:inline">[SHORTCUTS: PRESS 'K' OR '?']</span>
+            </div>
+            <a href="#top" class="md:col-span-3 p-6 invert-hover font-bold flex items-center justify-between">
+                <span>RETURN TO TOP</span>
+                <span>↑</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- KEYBOARD COMMAND PALETTE MODAL (0PX BRUTALIST OVERLAY) -->
+    <div id="cmd-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4">
+        <div class="w-full max-w-xl b-all bg-[var(--bg-primary)] text-[var(--text-primary)] font-mono text-xs">
+            <div class="p-4 b-b flex items-center justify-between bg-[var(--bg-secondary)]">
+                <span class="font-bold uppercase">[SYSTEM COMMAND PALETTE // KEYBOARD NAVIGATION]</span>
+                <button onclick="toggleCommandModal()" class="px-2 py-1 b-all invert-hover font-bold cursor-pointer">[ESC]</button>
+            </div>
+            <div class="divide-y divide-[var(--border-subtle)]">
+                <button onclick="jumpTo('#work')" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>JUMP TO 01 / SELECTED PROJECTS</span>
+                    <span class="font-bold">[KEY: 1]</span>
+                </button>
+                <button onclick="jumpTo('#experience')" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>JUMP TO 02 / WORK LEDGER</span>
+                    <span class="font-bold">[KEY: 2]</span>
+                </button>
+                <button onclick="jumpTo('#capabilities')" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>JUMP TO 03 / TECHNICAL CAPABILITIES</span>
+                    <span class="font-bold">[KEY: 3]</span>
+                </button>
+                <button onclick="jumpTo('#contact')" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>JUMP TO 05 / DIRECT DISPATCH</span>
+                    <span class="font-bold">[KEY: 4]</span>
+                </button>
+                <button onclick="togglePolarity(); toggleCommandModal();" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>INVERT MONOCHROME POLARITY (PAPER / OBSIDIAN)</span>
+                    <span class="font-bold">[KEY: I]</span>
+                </button>
+                <button onclick="toggleQAInspector(); toggleCommandModal();" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>TOGGLE QA DOM GRID INSPECTOR MODE</span>
+                    <span class="font-bold">[KEY: Q]</span>
+                </button>
+                <button onclick="copyEmailAddress(); toggleCommandModal();" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>COPY EMAIL (NEERAJTIWARI1406@GMAIL.COM)</span>
+                    <span class="font-bold">[KEY: C]</span>
+                </button>
+                <button onclick="window.print(); toggleCommandModal();" class="w-full p-4 invert-hover flex items-center justify-between text-left cursor-pointer">
+                    <span>PRINT / EXPORT TECHNICAL CV DOSSIER</span>
+                    <span class="font-bold">[KEY: P]</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAW MONOCHROME NOTIFICATION BAR (NO SHADOW, 0PX RADIUS) -->
+    <div id="mono-toast" class="fixed bottom-6 right-6 z-50 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-4 font-mono text-xs uppercase font-bold hidden items-center gap-4">
+        <span id="mono-toast-text">ADDRESS COPIED TO CLIPBOARD</span>
+        <span>[OK]</span>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. Live IST Clock in Header
+        function updateClock() {
+            const now = new Date();
+            const options = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            const clockEl = document.getElementById('live-clock');
+            if (clockEl) clockEl.textContent = `IST ${timeString}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 2. Top 2px Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            const bar = document.getElementById('scroll-progress');
+            if (bar) bar.style.width = scrolled + '%';
+        });
+
+        // 3. Monochrome Polarity Switch (Paper #FAFAFA vs Obsidian #000000)
+        function togglePolarity() {
+            document.body.classList.toggle('inverted');
+            const isInverted = document.body.classList.contains('inverted');
+            const label = document.getElementById('polarity-label');
+            if (label) label.textContent = isInverted ? '[OBSIDIAN]' : '[PAPER]';
+            triggerMonoToast(isInverted ? "POLARITY: OBSIDIAN (#000000)" : "POLARITY: PAPER (#FAFAFA)");
+        }
+
+        // 4. QA DOM Grid Inspector Mode
+        function toggleQAInspector() {
+            document.body.classList.toggle('qa-inspect-active');
+            const isActive = document.body.classList.contains('qa-inspect-active');
+            const label = document.getElementById('qa-label');
+            const bar = document.getElementById('qa-telemetry-bar');
+            if (label) label.textContent = isActive ? '[QA GRID: ON]' : '[QA GRID: OFF]';
+            if (bar) {
+                bar.classList.toggle('hidden', !isActive);
+                updateViewportTelemetry();
+            }
+            triggerMonoToast(isActive ? "QA DOM INSPECTOR: ENABLED" : "QA DOM INSPECTOR: DISABLED");
+        }
+
+        function updateViewportTelemetry() {
+            const vp = document.getElementById('qa-viewport-size');
+            if (vp) vp.textContent = `VIEWPORT: ${window.innerWidth}px × ${window.innerHeight}px`;
+        }
+        window.addEventListener('resize', updateViewportTelemetry);
+
+        document.addEventListener('mouseover', (e) => {
+            if (!document.body.classList.contains('qa-inspect-active')) return;
+            const node = e.target.closest('[data-qa-node]');
+            const targetEl = document.getElementById('qa-hover-target');
+            if (node && targetEl) {
+                const rect = node.getBoundingClientRect();
+                targetEl.textContent = `NODE: ${node.getAttribute('data-qa-node')} (${Math.round(rect.width)}×${Math.round(rect.height)}px)`;
+            }
+        });
+
+        // 5. Mobile Navigation Drawer Toggle
+        function toggleMobileNav() {
+            const nav = document.getElementById('mobile-nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                nav.classList.add('grid');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('grid');
+            }
+        }
+
+        // 6. Interactive Hero Playwright Verification Stepper & Batch Runner
+        const testLogs = [
+            "ASSERT: Playwright browser automation == PASS (12/12)",
+            "ASSERT: Next.js + Supabase integration == VERIFIED",
+            "ASSERT: Email DNS / SPF / Infrastructure == HEALTHY",
+            "ASSERT: Manual & Functional QA Workflows == PASS",
+            "STATUS: 5 PASSED IN 0.42s (200 OK)"
+        ];
+        let currentLogIdx = 0;
+        function stepTestLog() {
+            const line = document.getElementById('dynamic-log-line');
+            line.textContent = testLogs[currentLogIdx];
+            currentLogIdx = (currentLogIdx + 1) % testLogs.length;
+        }
+
+        function runFullSuite() {
+            const line = document.getElementById('dynamic-log-line');
+            let idx = 0;
+            line.textContent = "RUNNING: Executing headless Chromium assertions...";
+            const interval = setInterval(() => {
+                line.textContent = testLogs[idx];
+                idx++;
+                if (idx >= testLogs.length) {
+                    clearInterval(interval);
+                    triggerMonoToast("PLAYWRIGHT SUITE: 28/28 ASSERTIONS PASSED");
+                }
+            }, 260);
+        }
+
+        // 7. Project Specification Drawer Accordion & Inner Spec Tabs
+        function toggleDrawer(drawerId, iconId) {
+            const drawer = document.getElementById(drawerId);
+            const icon = document.getElementById(iconId);
+            const isHidden = drawer.classList.contains('hidden');
+
+            if (isHidden) {
+                drawer.classList.remove('hidden');
+                drawer.classList.add('grid');
+                icon.textContent = '[- SPEC]';
+            } else {
+                drawer.classList.add('hidden');
+                drawer.classList.remove('grid');
+                icon.textContent = '[+ SPEC]';
+            }
+        }
+
+        function switchSpecTab(projectPrefix, tabType) {
+            const archDiv = document.getElementById(`tab-${projectPrefix}-arch`);
+            const codeDiv = document.getElementById(`tab-${projectPrefix}-code`);
+            const archBtn = document.getElementById(`btn-${projectPrefix}-arch`);
+            const codeBtn = document.getElementById(`btn-${projectPrefix}-code`);
+
+            if (tabType === 'arch') {
+                archDiv.classList.remove('hidden');
+                codeDiv.classList.add('hidden');
+                archBtn.className = 'px-3 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer';
+                codeBtn.className = 'px-3 py-1 b-all invert-hover cursor-pointer';
+            } else {
+                archDiv.classList.add('hidden');
+                codeDiv.classList.remove('hidden');
+                codeBtn.className = 'px-3 py-1 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer';
+                archBtn.className = 'px-3 py-1 b-all invert-hover cursor-pointer';
+            }
+        }
+
+        // 8. Project Ledger Filter
+        function filterProjectLedger(category) {
+            const rows = document.querySelectorAll('.project-row');
+            const buttons = document.querySelectorAll('.ledger-filter');
+
+            buttons.forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.className = 'ledger-filter px-3 py-2 b-all bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold cursor-pointer';
+                } else {
+                    btn.className = 'ledger-filter px-3 py-2 b-all invert-hover cursor-pointer';
+                }
+            });
+
+            rows.forEach(row => {
+                const cats = row.dataset.category;
+                if (category === 'all' || cats.includes(category)) {
+                    row.style.display = 'block';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // 9. Copy Email with Raw Monochrome Status Bar
+        function triggerMonoToast(msg) {
+            const toast = document.getElementById('mono-toast');
+            const text = document.getElementById('mono-toast-text');
+            text.textContent = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 2600);
+        }
+
+        function copyEmailAddress() {
+            const email = "neerajtiwari1406@gmail.com";
+            const input = document.createElement('textarea');
+            input.value = email;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+
+            const heroBtn = document.getElementById('hero-email-btn');
+            if (heroBtn) {
+                heroBtn.textContent = "COPIED";
+                setTimeout(() => { heroBtn.textContent = "COPY EMAIL"; }, 2000);
+            }
+            triggerMonoToast("COPIED: NEERAJTIWARI1406@GMAIL.COM");
+        }
+
+        // 10. Command Modal & Global Keyboard Shortcuts
+        function toggleCommandModal() {
+            const modal = document.getElementById('cmd-modal');
+            const isHidden = modal.classList.contains('hidden');
+            if (isHidden) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function jumpTo(selector) {
+            toggleCommandModal();
+            const el = document.querySelector(selector);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const tag = document.activeElement.tagName.toLowerCase();
+            if (tag === 'input' || tag === 'textarea') return;
+
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('cmd-modal');
+                if (!modal.classList.contains('hidden')) toggleCommandModal();
+            } else if (e.key.toLowerCase() === 'k' || e.key === '?' || e.key === '/') {
+                e.preventDefault();
+                toggleCommandModal();
+            } else if (e.key.toLowerCase() === 'i') {
+                togglePolarity();
+            } else if (e.key.toLowerCase() === 'q') {
+                toggleQAInspector();
+            } else if (e.key.toLowerCase() === 'c') {
+                copyEmailAddress();
+            } else if (e.key === '1') {
+                document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === '2') {
+                document.querySelector('#experience').scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === '3') {
+                document.querySelector('#capabilities').scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === '4') {
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // 11. Mailto Dispatch Handler
+        function handleDispatch(event) {
+            event.preventDefault();
+            const name = document.getElementById('dispatch-name').value.trim();
+            const subject = document.getElementById('dispatch-subject').value.trim();
+            const body = document.getElementById('dispatch-body').value.trim();
+
+            const mailto = `mailto:neerajtiwari1406@gmail.com?subject=${encodeURIComponent(subject + ' // ' + name)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+            triggerMonoToast("DISPATCHING TO EMAIL CLIENT...");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
